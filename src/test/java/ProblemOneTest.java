@@ -22,4 +22,19 @@ public class ProblemOneTest {
         assertFalse(problemOne.detectAnagram("MaryEllen", "army"));
     }
 
+    @Test
+    public void detectAnagramTest3() {
+        assertFalse(problemOne.detectAnagram("Julia", "julia"));
+    }
+
+    @Test
+    public void detectAnagramTest4() {
+        assertTrue(problemOne.detectAnagram("Expleo", "leoPex"));
+    }
+
+    @Test
+    public void detectAnagramTest5() {
+        assertTrue(problemOne.detectAnagram("It was a great day", "A great day it was"));
+    }
+
 }
