@@ -64,6 +64,11 @@ public class CalculatorTest {
         assertEquals(2, calculator.evaluate("2*2/2"));
     }
 
+    @Test
+    public final void precedenceDivisionTest1() {
+        assertEquals(0.5, calculator.evaluate("2/2/2"));
+    }
+
 
     @Test
     public final void assertThrowsDivideByZero() {
