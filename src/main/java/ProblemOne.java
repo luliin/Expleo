@@ -14,10 +14,10 @@ public class ProblemOne {
 
         if(first.equalsIgnoreCase(second) || first.length()!=second.length()) return false;
 
-        Map<Character, Integer> firstLetterQuantity = mapStringCharacters(first.toLowerCase());
-        Map<Character, Integer> secondLetterQuantity = mapStringCharacters(second.toLowerCase());
+        Map<Character, Integer> firstWordLetterQuantity = mapStringCharacters(first.toLowerCase());
+        Map<Character, Integer> secondWordLetterQuantity = mapStringCharacters(second.toLowerCase());
 
-        return firstLetterQuantity.equals(secondLetterQuantity);
+        return firstWordLetterQuantity.equals(secondWordLetterQuantity);
     }
 
     /**
