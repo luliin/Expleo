@@ -89,6 +89,8 @@ public class Calculator {
 
             String element = splitExpression.get(i);
 
+
+
             /*
             If the current element cannot parse (ie is +-/*) we switch on element.
             If element is * or /, we multiply or divide the previous element and the next element, adding it to sum.
@@ -154,9 +156,13 @@ public class Calculator {
                         highPrecedenceSum = 0;
                     }
                     default -> {
-
                         //We will only get here when current element is a negative number
 
+                        //If current negative number is on index 1, we add the first element (cached in variable) to list
+                        if (i == 1) {
+                            precedenceList.add(highPrecedenceSum + "");
+                            highPrecedenceSum = 0;
+                        }
                         //Cache next element in variable
                         String next = splitExpression.get(i + 1);
 
@@ -198,12 +204,25 @@ public class Calculator {
                         }
                     }
                 }
-                //If i is next to last element and current element is high precedence we add accumulated sum to list
-                if (i == splitExpression.size() - 2 && !helper.isLowPrecedence(element)) {
+
+            }
+            //If i is next to last element and current element is high precedence we add accumulated sum to list
+            if (i == splitExpression.size() - 2) {
+                if (!helper.isLowPrecedence(element)) {
                     precedenceList.add(highPrecedenceSum + "");
+                }
+                if (helper.tryParse(element) && helper.parseNumber(element) >= 0) {
+                    String next = splitExpression.get(i + 1);
+                    precedenceList.add(next);
                 }
             }
         }
         return precedenceList;
+    }
+
+
+    public static void main(String[] args) {
+        Calculator calculator = new Calculator();
+        System.out.println(calculator.evaluate("2-3*4"));
     }
 }
