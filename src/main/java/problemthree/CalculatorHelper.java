@@ -76,5 +76,11 @@ public class CalculatorHelper {
 
     }
 
+    public boolean isLowPrecedence(String string) {
+        if(string.equals("-")) return true;
+        if(string.equals("+")) return true;
+        return tryParse(string) && parseNumber(string) < 0;
+    }
+
 
 }
