@@ -75,9 +75,7 @@ public class Calculator {
                 switch (element) {
                     case "+" -> sum += helper.parseNumber(splitExpression.get(i+1));
                     case "-" -> sum -= helper.parseNumber(splitExpression.get(i+1));
-                    case "/", "*" -> {
-                        throw new IllegalArgumentException("You must not mix operator precedences (eg. only +  - or / * allowed)");
-                    }
+                    case "/", "*" -> throw new IllegalArgumentException("You must not mix operator precedences (eg. only +  - or / * allowed)");
                     default -> {
                         double number = helper.parseNumber(element);
                         if(helper.tryParse(splitExpression.get(i-1))) {
