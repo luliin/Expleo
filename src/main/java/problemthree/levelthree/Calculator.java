@@ -172,7 +172,9 @@ public class Calculator {
 
                             //Else we add current element to list
                         } else {
-                            precedenceList.add(element);
+                            if(!helper.isLowPrecedence(splitExpression.get(i-1))) {
+                                precedenceList.add(element);
+                            }
                         }
                     }
                 }
@@ -223,6 +225,6 @@ public class Calculator {
 
     public static void main(String[] args) {
         Calculator calculator = new Calculator();
-        System.out.println(calculator.evaluate("2-3*4"));
+        System.out.println(calculator.evaluate("1760-1-1-1-11--1"));
     }
 }
