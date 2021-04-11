@@ -65,7 +65,7 @@ public class CalculatorHelper {
         String firstString = splitExpression.get(0);
 
         if (!tryParse(firstString)) {
-            throw new IllegalArgumentException("Invalid input.");
+            throw new IllegalArgumentException("First operand is invalid.");
         }
 
         if (splitExpression.size() < 2) {
