@@ -1,7 +1,6 @@
 package problemthree.levelone;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -22,15 +21,15 @@ public class Calculator {
         operators.add("*");
     }
 
-    public double evaluate(String input) {
+    public double evaluate(String expression) {
         String operator = "";
         for (int i = 0; i < operators.size(); i++) {
             String string = operators.get(i);
-            if (input.substring(1).contains(string)) {
+            if (expression.substring(1).contains(string)) {
                 operator = string;
             }
         }
-        return calculate(input, operator);
+        return calculate(expression, operator);
     }
 
     private double calculate(String input, String operator) {
