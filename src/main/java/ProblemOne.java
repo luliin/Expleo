@@ -10,6 +10,13 @@ import java.util.Map;
  */
 public class ProblemOne {
 
+
+    /**
+     * This method checks if two String objects are anagrams of each other.
+     * @param first - The first String object to compare
+     * @param second- The second String object to compare
+     * @return - true if they are anagrams, otherwise false
+     */
     public boolean detectAnagram(String first, String second) {
 
         if(first.equalsIgnoreCase(second) || first.length()!=second.length()) return false;
