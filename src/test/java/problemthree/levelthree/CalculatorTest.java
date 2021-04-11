@@ -99,4 +99,21 @@ public class CalculatorTest {
     public void isLowPrecedenceTest2() {
         assertFalse(calculator.helper.isLowPrecedence("*"));
     }
+
+    @Test
+    public void exampleTest1() {
+        assertEquals(122, calculator.evaluate("2+3*40"));
+    }
+    @Test
+    public void exampleTest2() {
+        assertEquals(10, calculator.evaluate("2 * 3 + 4"));
+    }
+    @Test
+    public void exampleTest3() {
+        assertEquals(3.666666666666667, calculator.evaluate("2 / 3 + 4 -1"));
+    }
+    @Test
+    public void exampleTest4() {
+        assertEquals(-10, calculator.evaluate("2-3*4"));
+    }
 }
