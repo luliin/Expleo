@@ -19,38 +19,6 @@ public class Calculator {
     public double evaluate(String expression) {
 
         List<String> splitExpression = helper.getSplitExpression(expression);
-//        //Check if expression contains alphabetical characters or invalid symbols
-//        Matcher matcher = Pattern.compile("[^\\d-+*/.,\\s]").matcher(expression);
-//        if (matcher.find()) {
-//            throw new InputMismatchException("Only integers, floating point numbers or operators + - * / are allowed");
-//        }
-//
-//        //Remove white spaces
-//        expression = expression.replace(" ", "");
-//
-//        //Check if expression starts with something other than digit, -, period or comma
-//        if (Pattern.compile("^[^-?[.,]?\\d]").matcher(expression).find()) {
-//            throw new IllegalArgumentException("Your expression must start with a numerical parameter");
-//        }
-//
-//        if (Pattern.compile("[^\\d]$").matcher(expression).find()) {
-//            throw new IllegalArgumentException("Your expression must end with a numerical parameter");
-//        }
-//
-//        //Create our List to store our expression
-//        List<String> splitExpression = new ArrayList<>();
-//
-//        //Regex to capture decimal digits and floating point digits, negative or positive.
-//        matcher = Pattern.compile("(-?+[.,]?+\\d+[.,]?\\d*)|([*/+]+)|([--])").matcher(expression);
-//
-//        while (matcher.find()) {
-//            //If we find matches, we replace , with a . to be able to handle floating point arithmetics.
-//            splitExpression.add(matcher.group().replace(",", "."));
-//        }
-//
-//        //TODO: Ta bort mig!
-//        System.out.println(splitExpression);
-
 
         String firstString = splitExpression.get(0);
 
@@ -120,13 +88,5 @@ public class Calculator {
             }
         }
         return sum;
-    }
-
-    public static void main(String[] args) {
-        Calculator calculator = new Calculator();
-
-        System.out.println(calculator.evaluate(".2225+-2 *2 *34,4"));
-        System.out.println(calculator.evaluate("-3-5+-500 +"));
-
     }
 }
