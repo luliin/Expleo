@@ -116,4 +116,9 @@ public class CalculatorTest {
     public void exampleTest4() {
         assertEquals(-10, calculator.evaluate("2-3*4"));
     }
+
+    @Test
+    public void edgeCaseTest() {
+        assertEquals(1747, calculator.evaluate("2*5*2*2*2*22-1-1-1-11--1"));
+    }
 }
