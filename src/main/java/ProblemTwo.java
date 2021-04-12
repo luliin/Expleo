@@ -17,6 +17,20 @@ public class ProblemTwo {
     private WebDriver driver = null;
     private String webPageToSearch;
 
+    public static void main(String[] args) {
+
+        //This is the web page we will use
+        String webPageToSearch ="https://www.google.com/";
+
+        ProblemTwo problemTwo = new ProblemTwo(webPageToSearch);
+
+        problemTwo.printElementToConsole("a", "href");
+        //Lastly we close the driver
+        if(problemTwo.driver!=null) {
+            problemTwo.driver.quit();
+        }
+    }
+
     public ProblemTwo() {
         //We use this to get the path to our chrome drivers
         WebDriverManager.getInstance(CHROME).setup();
@@ -69,17 +83,5 @@ public class ProblemTwo {
         list.stream().map(a -> a.getAttribute(attribute)).forEach(System.out::println);
     }
 
-    public static void main(String[] args) {
 
-        //This is the web page we will use
-        String webPageToSearch ="https://www.google.com/";
-
-        ProblemTwo problemTwo = new ProblemTwo(webPageToSearch);
-
-        problemTwo.printElementToConsole("a", "href");
-        //Lastly we close the driver
-        if(problemTwo.driver!=null) {
-            problemTwo.driver.quit();
-        }
-    }
 }
