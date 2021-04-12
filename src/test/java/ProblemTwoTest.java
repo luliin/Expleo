@@ -1,3 +1,5 @@
+import org.junit.jupiter.api.Test;
+
 /**
  * Created by Julia Wigenstedt
  * Date: 2021-04-09
@@ -6,4 +8,11 @@
  * Copyright: MIT
  */
 public class ProblemTwoTest {
+
+
+
+    @Test
+    public final void listLinkTest() {
+//        assertTrue();
+    }
 }

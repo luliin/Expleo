@@ -14,31 +14,47 @@ import static io.github.bonigarcia.wdm.config.DriverManagerType.CHROME;
  */
 public class ProblemTwo {
 
+    private WebDriver driver = null;
+    private String webPageToSearch;
+
+    public ProblemTwo(String webPageToSearch) {
+        //This is the web page we will use
+        this.webPageToSearch = webPageToSearch;
+
+        //We use this to get the path to our chrome drivers
+        WebDriverManager.getInstance(CHROME).setup();
+
+        //Our chrome driver instance
+        driver = new ChromeDriver();
+
+        //We use our chrome driver instance to get the web page
+        driver.get(webPageToSearch);
+
+
+    }
+    //Find all relevant elements from page, in this case all a elements and add them to a list
+    public List<WebElement> findElementsByTagName(String tagName) {
+        return driver.findElements(By.tagName("a"));
+    }
+
+    public void printElementToConsole(String tagName, String attribute) {
+        System.out.println("\nPrinting elements from: " + webPageToSearch + "\n");
+        //For each a element we first map by chosen attribute and then print each element
+        List<WebElement> list = findElementsByTagName(tagName);
+        list.stream().map(a -> a.getAttribute(attribute)).forEach(System.out::println);
+    }
 
     public static void main(String[] args) {
 
         //This is the web page we will use
         String webPageToSearch ="https://www.google.com/";
 
-        //We use this to get the path to our chrome drivers
-        WebDriverManager.getInstance(CHROME).setup();
+        ProblemTwo problemTwo = new ProblemTwo(webPageToSearch);
 
-        //Our chrome driver instance
-        WebDriver driver = new ChromeDriver();
-
-        //We use our chrome driver instance to get the web page
-        driver.get(webPageToSearch);
-
-        //Find all relevant elements from page, in this case all a elements and add them to a list
-        List<WebElement> links = driver.findElements(By.tagName("a"));
-
-        System.out.println("\nAll links on chosen web page: " + webPageToSearch + "\n");
-
-        //For each a element we first map by "href" attribute and then print each element
-        links.stream().map(a -> a.getAttribute("href")).forEach(System.out::println);
-
+        problemTwo.printElementToConsole("a", "href");
         //Lastly we close the driver
-        driver.close();
-
+        if(problemTwo.driver!=null) {
+            problemTwo.driver.quit();
+        }
     }
 }
