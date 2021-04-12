@@ -17,6 +17,14 @@ public class ProblemTwo {
     private WebDriver driver = null;
     private String webPageToSearch;
 
+    public ProblemTwo() {
+        //We use this to get the path to our chrome drivers
+        WebDriverManager.getInstance(CHROME).setup();
+
+        //Our chrome driver instance
+        driver = new ChromeDriver();
+    }
+
     public ProblemTwo(String webPageToSearch) {
         //This is the web page we will use
         this.webPageToSearch = webPageToSearch;
@@ -30,8 +38,25 @@ public class ProblemTwo {
         //We use our chrome driver instance to get the web page
         driver.get(webPageToSearch);
 
-
     }
+
+    public WebDriver getDriver() {
+        return driver;
+    }
+
+    public void setDriver(WebDriver driver) {
+        this.driver = driver;
+    }
+
+    public String getWebPageToSearch() {
+        return webPageToSearch;
+    }
+
+    public void setWebPageToSearch(String webPageToSearch) {
+        this.webPageToSearch = webPageToSearch;
+    }
+
+
     //Find all relevant elements from page, in this case all a elements and add them to a list
     public List<WebElement> findElementsByTagName(String tagName) {
         return driver.findElements(By.tagName("a"));
