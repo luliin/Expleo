@@ -17,9 +17,21 @@ Enjoy!
   The code will be in \src\java\ProblemOne
 
 - Problem Two - Find all links on a web page
-
-  This problem have not been solved when writing this README.
-
+  
+  Install Google Chrome
+  
+  In IntelliJ project:
+  Go to \src\main\java\ProblemTwo.java
+  
+  Run main method.
+  
+  When executed, the main method will open your Chrome browser.
+  
+  Scroll down in console until you see non red text.
+  
+  All links in Console will (hopefully) be fully functioning.
+  
+  
 - Problem Three - Calculator
 
   - All levels uses the same CalculatorHelper class, found in \src\java\problemthree\CalculatorHelper.java
